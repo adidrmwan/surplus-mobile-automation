@@ -1,0 +1,13 @@
+spring:
+  profiles: dev
+
+config:
+  android:
+    appPackage: "surplus.surplus_apps_customer"
+    appActivity: "surplus.surplus_apps_customer.MainActivity"
+    appPath: /APP/app.apk
+    name: "Surplus"
+
+user:
+  email: "octavious.nayef@donebyngle.com"
+  password: "Password!2"
