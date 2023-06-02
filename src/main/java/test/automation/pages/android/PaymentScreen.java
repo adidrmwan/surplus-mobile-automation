@@ -47,4 +47,8 @@ public class PaymentScreen extends AndroidPageObject {
         total = total.replaceAll("Rp ", "");
         return total;
     }
+
+    public boolean isBayarButtonEnabled() {
+        return waitUntilVisible(submitOrderButton()).isEnabled();
+    }
 }

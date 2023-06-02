@@ -32,7 +32,6 @@ public class TransactionSteps {
         paymentScreen.isOnPembarayanScreen();
         paymentScreen.selectPaymentMethod(type, number);
         Assert.assertEquals(PaymentData.getGrandTotal(), paymentScreen.getGrandTotalPayment());
-        paymentScreen.clickSubmitOrderButton();
     }
 
     @Then("user see payment confirmation detail")
@@ -44,5 +43,15 @@ public class TransactionSteps {
     public void userSeeOrderDetailConfirmationWithPaymentMethod(String type) {
         Assert.assertTrue(orderDetailConfirmationScreen.isPaymentMethodReceiptContains(type));
         Assert.assertEquals(PaymentData.getGrandTotal(), orderDetailConfirmationScreen.getTextGrandTotalReceipt());
+    }
+
+    @Then("user see bayar button is disabled")
+    public void userSeeBayarButtonIsDisabled() {
+        Assert.assertFalse(paymentScreen.isBayarButtonEnabled());
+    }
+
+    @And("user click bayar button")
+    public void userClickBayarButton() {
+        paymentScreen.clickSubmitOrderButton();
     }
 }
