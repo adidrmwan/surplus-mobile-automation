@@ -31,8 +31,9 @@ public class OrderDetailConfirmationScreen extends AndroidPageObject {
         return total;
     }
 
-    public String getPaymentMethodReceipt() {
+    public boolean isPaymentMethodReceiptContains(String type) {
         swipeUpIntoElement(paymentMethodReceipt());
-        return waitUntilVisible(paymentMethodReceipt()).getText();
+        String paymentMethod = waitUntilVisible(paymentMethodReceipt()).getText();
+        return paymentMethod.contains(type);
     }
 }

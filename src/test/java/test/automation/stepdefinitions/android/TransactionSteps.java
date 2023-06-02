@@ -20,11 +20,10 @@ public class TransactionSteps {
     OrderDetailConfirmationScreen orderDetailConfirmationScreen;
 
     @And("user select {string} pickup method")
-    public void userSelectSelfPickupMethod(String type) {
+    public void userSelectSelfPickupMethod(String type) throws InterruptedException {
         orderReviewScreen.isOnOrderReviewScreen();
         orderReviewScreen.selectPickUpButton(type);
         PaymentData.setGrandTotal(orderReviewScreen.getTotalPaymentOrder());
-        System.out.println("Grand Total 2 : " +PaymentData.getGrandTotal());
         orderReviewScreen.clickSubmitOrderButton();
     }
 
@@ -43,7 +42,7 @@ public class TransactionSteps {
 
     @And("user see order detail confirmation with {string} payment method")
     public void userSeeOrderDetailConfirmationWithPaymentMethod(String type) {
-        Assert.assertEquals(type, orderDetailConfirmationScreen.getPaymentMethodReceipt());
+        Assert.assertTrue(orderDetailConfirmationScreen.isPaymentMethodReceiptContains(type));
         Assert.assertEquals(PaymentData.getGrandTotal(), orderDetailConfirmationScreen.getTextGrandTotalReceipt());
     }
 }

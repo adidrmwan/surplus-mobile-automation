@@ -21,19 +21,6 @@ Feature: As user, I have be able to success login, So that I can see home screen
       |self_pickup                  |GOPAY          |none           |
       |self_pickup                  |ShopeePay      |none           |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   @Negative @Failed-Create-Transaction
   Scenario: user failed create new transaction when input invalid ovo phone number
     When user select product on best seller menu

@@ -40,9 +40,11 @@ public class AndroidDriverPool {
         caps.setCapability(AndroidMobileCapabilityType.PLATFORM_NAME, driverAndroidProperties.getPlatformName());
         caps.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, driverAndroidProperties.isAutoGrantPermissions());
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, driverAndroidProperties.getAutomationName());
+        caps.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, configProperties.getAndroid().getAppActivity());
+        caps.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, configProperties.getAndroid().getAppPackage());
         caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 100);
         caps.setCapability(AndroidMobileCapabilityType.GPS_ENABLED, true);
-        caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + File.separator + configProperties.getAndroid().getAppPath());
+//        caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + File.separator + configProperties.getAndroid().getAppPath());
 
         driver = new AndroidDriver<AndroidElement>(service.getUrl(), caps);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -59,6 +61,7 @@ public class AndroidDriverPool {
         //Start the server with the builder
         service = AppiumDriverLocalService.buildService(builder);
         service.start();
+        System.out.println("=============== START APPIUM SERVER ===============");
     }
 
     public static int getAvailablePort() {

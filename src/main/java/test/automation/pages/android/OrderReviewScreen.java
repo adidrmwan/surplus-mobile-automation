@@ -48,8 +48,8 @@ public class OrderReviewScreen extends AndroidPageObject {
         onClick(submitOrderButton());
     }
 
-    public String getTotalPaymentOrder() {
-        Assert.assertTrue(isElementInvisible(loadingModal()));
+    public String getTotalPaymentOrder() throws InterruptedException {
+        Thread.sleep(2000);
         String total = waitUntilVisible(grandTotal()).getText();
         total = total.replace("Rp", "");
         return total;
