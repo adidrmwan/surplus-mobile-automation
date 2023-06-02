@@ -46,6 +46,7 @@ Add IntelliJ Cucumber for Java plugin:
 
 ## Sample Result
 
+https://github.com/adidrmwan/surplus-mobile-automation/assets/22820270/317d1e09-8727-4268-92a8-b630d8f22dc2
 
 ## Documentations
 * https://appium.io/docs/en/about-appium/getting-started/?lang=en
